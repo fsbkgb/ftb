@@ -1,0 +1,22 @@
+#!/bin/bash
+
+drctry="footbolkee"
+
+if [ $3 ]
+then
+  if [ ! -f $drctry/$1_$2_$3.png ]
+  then
+    convert $drctry/3.png -fill "#$1" -draw 'color 90,50 replace' -fill "#$2" -draw 'color 90,100 replace' -fill "#$3" -draw 'color 90,180 replace' -resize 20x20\> $drctry/$1_$2_$3.png
+    echo created $drctry/$1_$2_$3.png
+  else
+    echo file exists
+  fi
+else
+  if [ ! -f $drctry/$1_$2.png ]
+  then
+    convert $drctry/2.png -fill "#$1" -draw 'color 30,60 replace' -fill "#$2" -draw 'color 80,100 replace' -resize 20x20\> $drctry/$1_$2.png
+    echo created $drctry/$1_$2.png
+  else
+    echo file exists
+  fi
+fi
